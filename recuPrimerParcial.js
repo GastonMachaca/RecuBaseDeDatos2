@@ -216,15 +216,16 @@ páginas (inclusive).
 
 // 2) Buscar cuántos libros tienen a "Carlos Gómez" entre sus autores
 
-db.librosEspeciales.countDocuments({autores : "Carlos Gomez"});
+db.librosEspeciales.find(
+    {autores : {$in : ['Carlos Gómez']}}
+);
 
 
 // 3) Buscar cuántos libros son de género "romance" y tienen "Lucía Herrera" entre los autores.
 
-db.librosEspeciales.countDocuments({
-    genero: 'romance',
-    autores : 'Lucia Herrera'
-});
+db.librosEspeciales.find(
+    {genero: 'romance', autores : {$in : ['Lucía Herrera']}}
+);
 
 // 4) Listar el título y número de páginas de los libros con nivel de lectura "juvenil".
 
